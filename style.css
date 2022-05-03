@@ -2,7 +2,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 :root {
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
