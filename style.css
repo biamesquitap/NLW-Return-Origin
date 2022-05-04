@@ -2,6 +2,7 @@
 
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 :root {
@@ -14,6 +15,11 @@
   font-size: 62.5%; /* 1rem = 10px */
 
   --nav-height: 7.2rem;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -29,14 +35,20 @@ body {
   padding-inline: 2.4rem;
 }
 
+ul {
+  list-style: none;
+}
+
+
 /*                    HEADER                          */
 
 header::before {
   content: '';
-  width: 100vw;
+  width: 100%;
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
   display: block;
+
   position: absolute;
   top: 0;
   left: 0;
@@ -130,6 +142,9 @@ header img {
   margin-bottom: 0.4rem;
 }
 
+/*                    NAVIGATION                          */
+
+
 nav {
   display: flex;
 
@@ -158,4 +173,22 @@ nav.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+/*                  MENU-EXPANDED                        */
+
+.menu{
+  opacity: 0;
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--primary-color);
+}
+
+body.menu-expanded nav {
+  position: relative;
+
 }
