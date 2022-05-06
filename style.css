@@ -25,7 +25,7 @@ body {
 }
 
 body {
-  font-family: 'DM Sans';
+  font-family: "DM Sans";
   font-size: 1.6rem;
 
   text-align: center;
@@ -37,6 +37,8 @@ body {
   width: 37.5rem;
   margin-inline: auto;
   padding-inline: 2.4rem;
+  /* display: flex;
+  justify-content: space-between; */
 }
 
 ul {
@@ -46,7 +48,7 @@ ul {
 /*                    HEADER                          */
 
 header::before {
-  content: '';
+  content: "";
   width: 100%;
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
@@ -180,7 +182,6 @@ nav.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 }
 
 nav button {
@@ -188,7 +189,6 @@ nav button {
   border: none;
   cursor: pointer;
 }
-
 
 /*                  MENU-EXPANDED                        */
 
@@ -229,7 +229,7 @@ body.menu-expanded nav {
   position: relative;
 }
 
-.menu ul:nth-child(1) {
+ul.menu-ul {
   display: flex;
   flex-direction: column;
   gap: 4.8rem;
@@ -241,15 +241,17 @@ body.menu-expanded nav {
   line-height: 3.1rem;
 }
 
-.menu ul li a{
+.menu ul li a {
   color: white;
   text-decoration: none;
 }
 
 .menu .button {
   background-color: white;
-  border-radius: 4rem;
+  border: 1px solid #000000;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   font-weight: 700;
+  border-radius: 4rem;
   font-size: 1.8rem;
   line-height: 2.3rem;
   text-transform: uppercase;
@@ -264,13 +266,18 @@ body.menu-expanded nav {
   margin-bottom: 8rem;
 }
 
-div.social-links {
+.social-links {
   display: flex;
-  background-color: none;
 
   align-items: center;
   justify-content: center;
-  background: none;
+}
+.social-links-ul {
+  display: flex;
+  justify-content: space-between;
+}
+.social-links-ul li {
+  margin: 2rem;
 }
 
 /* ul.icones {
