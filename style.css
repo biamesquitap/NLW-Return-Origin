@@ -50,7 +50,7 @@ header::before {
   width: 100%;
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
-  display: block;
+  /* display: block; */
 
   position: absolute;
   top: 0;
@@ -109,13 +109,6 @@ header button {
   margin-left: auto;
 }
 
-header img {
-  width: 26.4rem;
-  display: block;
-  margin-inline: auto;
-  object-position: 0 2rem;
-}
-
 .stats {
   width: 32.7rem;
   padding-block: 4rem;
@@ -129,6 +122,13 @@ header img {
   flex-direction: column;
   justify-content: center;
   gap: 6rem;
+}
+
+header img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
 }
 
 .stat p {
@@ -180,6 +180,7 @@ nav.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 }
 
 nav button {
@@ -187,6 +188,7 @@ nav button {
   border: none;
   cursor: pointer;
 }
+
 
 /*                  MENU-EXPANDED                        */
 
@@ -239,7 +241,7 @@ body.menu-expanded nav {
   line-height: 3.1rem;
 }
 
-.menu ul li a {
+.menu ul li a{
   color: white;
   text-decoration: none;
 }
@@ -262,14 +264,26 @@ body.menu-expanded nav {
   margin-bottom: 8rem;
 }
 
-.social-links {
+div.social-links {
   display: flex;
+  background-color: none;
+
   align-items: center;
   justify-content: center;
-  gap: 3.2rem;
+  background: none;
 }
 
-body.menu-expanded .logo , body.menu-expanded nav button {
+/* ul.icones {
+  display: flex;
+} */
+
+/* div.social-links svg path {
+  fill: none;
+  display: flex;
+} */
+
+body.menu-expanded .logo,
+body.menu-expanded nav button {
   position: relative;
   z-index: 100;
 }
