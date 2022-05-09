@@ -15,8 +15,8 @@
       rel="stylesheet"
     />
   </head>
-  <body onscroll="onScroll()" class="menu-expanded">
-    <nav id="navigation" class="scroll">
+  <body onscroll="onScroll()" class="">
+    <nav id="navigation" class="">
       <div class="wrapper">
         <a class="logo" href="#">
           <svg
@@ -164,7 +164,12 @@
           </div>
         </div>
 
-        <button onclick="openMenu()" class="open-menu">
+        <button
+          onclick="openMenu()"
+          class="open-menu"
+          aria-expanded="false"
+          aria-label="Abrir menu"
+        >
           <svg
             width="40"
             height="40"
@@ -195,7 +200,12 @@
             />
           </svg>
         </button>
-        <button onclick="closeMenu()" class="close-menu">
+        <button
+          onclick="closeMenu()"
+          class="close-menu"
+          aria-expanded="true"
+          aria-label="Fechar menu"
+        >
           <svg
             width="40"
             height="40"
@@ -262,5 +272,126 @@
         </div>
       </div>
     </header>
+
+    <section id="services">
+      <div class="wrapper">
+        <header>
+          <h4>Serviços</h4>
+          <h2>Como podemos ajudá-lo a se sentir melhor?</h2>
+        </header>
+
+        <div class="cards">
+          <div class="card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+              <path
+                d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                stroke="#00856F"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <h3>Problemas digestivos</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
+              nesciunt suscipit beatae excepturi nisi, dicta voluptatem esse
+              quasi doloremque distinctio, debitis odio! Dolorum reprehenderit
+              ex qui dolor porro quaerat pariatur!
+            </p>
+          </div>
+
+          <div class="card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+              <path
+                d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                stroke="#00856F"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <h3>Saúde Hormonal</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
+              nesciunt suscipit beatae excepturi nisi, dicta voluptatem esse
+              quasi doloremque distinctio, debitis odio! Dolorum reprehenderit
+              ex qui dolor porro quaerat pariatur!
+            </p>
+          </div>
+
+          <div class="card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+              <path
+                d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                stroke="#00856F"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <h3>Bem-estar mental</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
+              nesciunt suscipit beatae excepturi nisi, dicta voluptatem esse
+              quasi doloremque distinctio, debitis odio! Dolorum reprehenderit
+              ex qui dolor porro quaerat pariatur!
+            </p>
+          </div>
+
+          <div class="card">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="12" cy="12" r="12" fill="#DCE9E2" />
+              <path
+                d="M17.091 8.18182L10.091 15.1818L6.90918 12"
+                stroke="#00856F"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+
+            <h3>Cuidados Pediátrios</h3>
+            <p>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo
+              nesciunt suscipit beatae excepturi nisi, dicta voluptatem esse
+              quasi doloremque distinctio, debitis odio! Dolorum reprehenderit
+              ex qui dolor porro quaerat pariatur!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
   </body>
 </html>

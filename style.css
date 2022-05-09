@@ -194,15 +194,15 @@ nav button {
 
 body.menu-expanded {
   overflow: hidden;
-}
+} 
 
 body.menu-expanded > :not(nav) {
   display: none;
-}
+} 
 
-.menu,
+.menu
 .close-menu,
-body.menu-expanded .open-menu {
+body.menu-expanded .close-menu {
   opacity: 0;
   visibility: hidden;
 }
@@ -301,4 +301,42 @@ body.menu-expanded .logo path {
 
 body.menu-expanded button path {
   stroke: white;
+}
+
+/*            SERVICES                    */ 
+#services header h4 {
+  font-size: 1.4rem;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
+
+  color: var(--primary-color);
+
+  text-transform: uppercase;
+
+  margin-bottom: 1.6rem;
+}
+
+#services header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+  text-align: center;
+
+  color: var(--headline);
+
+  margin-bottom: 6rem;
+}
+
+#services .card {
+
+  padding: 2.4rem;
+  text-align: left;
+  background: white;
+
+  border: 1px solid var(--brand-light);
+  border-radius: 0.6rem;
+
+}
+
+#services .card h3 {
+  margin-block: 1.6rem;
 }
