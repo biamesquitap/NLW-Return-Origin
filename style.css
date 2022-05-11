@@ -1,5 +1,4 @@
-/*                    GERAL                           */
-
+/*=== GERAL =================================*/
 * {
   margin: 0;
   padding: 0;
@@ -10,8 +9,10 @@
   --primary-color: hsl(170, 100%, 26%);
   --headline: hsl(210, 11%, 15%);
   --paragraph: hsl(210, 9%, 31%);
+
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(148, 23%, 89%);
+
   --bg-light: hsl(180, 14%, 97%);
 
   font-size: 62.5%; /* 1rem = 10px */
@@ -20,6 +21,7 @@
 }
 
 html {
+  /* chrome://flags/#smooth-scrolling */
   scroll-behavior: smooth;
 }
 
@@ -56,26 +58,25 @@ img {
 
 section {
   padding-block: 10rem;
-
-  background-color: var(--bg-light);
 }
 
 section header h4 {
   font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 150%;
+  letter-spacing: 0.08rem;
   color: var(--primary-color);
+
+  text-transform: uppercase;
+
   margin-bottom: 1.6rem;
 }
 
 section header h2 {
-
   font-size: 3rem;
   line-height: 3.9rem;
-  text-align: center;
 
   color: var(--headline);
-
-  margin-bottom: 6rem;
-
 }
 
 section header h1 {
@@ -86,9 +87,14 @@ section header h1 {
   margin-bottom: 2.4rem;
 }
 
+section .content p {
+  font-weight: 400;
+  font-size: 1.6rem;  
+  line-height: 150%;  
 
-/*                    NAVIGATION                          */
-
+  color: var(--paragraph);
+}
+/*=== NAVIGATION =================================*/
 nav {
   display: flex;
 
@@ -99,12 +105,16 @@ nav {
   width: 100vw;
 
   z-index: 100;
+}
 
+nav .wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 nav.scroll {
-  background-color: var(--primary-color);
- 
+  background: var(--primary-color);
 }
 
 nav.scroll .logo path {
@@ -115,12 +125,6 @@ nav.scroll button path {
   stroke: white;
 }
 
-nav.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 nav button {
   background: none;
   border: none;
@@ -128,36 +132,122 @@ nav button {
 }
 
 
-/*             HOME                          */
+/*=== MENU-EXPANDED =================================*/
+body.menu-expanded {
+  overflow: hidden;
+}
 
-home::before {
+body.menu-expanded > :not(nav) {
+  visibility: hidden;
+}
+
+.menu,
+.close-menu,
+body.menu-expanded .open-menu {
+  opacity: 0;
+  visibility: hidden;
+}
+
+body.menu-expanded .menu,
+body.menu-expanded .close-menu {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  transform: translateY(100%);
+}
+
+body.menu-expanded .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--primary-color);
+
+  width: 100vw;
+  height: 100vh;
+
+  padding-top: var(--nav-height);
+
+  transition: transform 300ms;
+  transform: translateY(0);
+  
+}
+
+.menu ul:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  gap: 4.8rem;
+
+  margin-top: 6rem;
+
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3.1rem;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu .button {
+  background: white;
+  border-radius: 4rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 2.3rem;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  color: var(--primary-color);
+
+  display: inline-block;
+  padding: 16px 32px;
+
+  margin-top: 4.8rem;
+  margin-bottom: 8rem;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+}
+
+body.menu-expanded .logo,
+body.menu-expanded button {
+  position: relative;
+  z-index: 100;
+}
+
+body.menu-expanded .logo path {
+  fill: white;
+}
+
+body.menu-expanded button path {
+  stroke: white;
+}
+
+
+
+/*=== #HOME =================================*/
+#home {
+  padding-top: calc(4.1rem + var(--nav-height));
+}
+
+#home::before {
   content: '';
   width: 100%;
   height: calc(108rem + var(--nav-height));
   background-color: var(--brand-light);
-  /* display: block; */
+  display: block;
 
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-}
-
-#home {
-  padding-top: calc(4.1rem + var(--nav-height));
-}
-
-#home h1 {
-  font-size: 3.4rem;
-  color: var(--headline);
-  line-height: 130%;
-  margin-bottom: 2.4rem;
-}
-
-#home h4 {
-  font-size: 1.4rem;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
 }
 
 #home p {
@@ -170,7 +260,7 @@ home::before {
 }
 
 #home button {
-  background-color: var(--primary-color);
+  background: var(--primary-color);
 
   border: none;
   border-radius: 4rem;
@@ -194,6 +284,13 @@ home::before {
   margin-left: auto;
 }
 
+#home img {
+  width: 26.4rem;
+  display: block;
+  margin-inline: auto;
+  object-position: 0 2rem;
+}
+
 #home .stats {
   width: 32.7rem;
   padding-block: 4rem;
@@ -209,11 +306,12 @@ home::before {
   gap: 6rem;
 }
 
-#home img {
-  width: 26.4rem;
-  display: block;
-  margin-inline: auto;
-  object-position: 0 2rem;
+#home .stat h3 {
+  font-size: 4.8rem;
+  color: var(--headline);
+  line-height: 130%;
+
+  margin-bottom: 0.4rem;
 }
 
 #home .stat p {
@@ -223,131 +321,10 @@ home::before {
   line-height: 150%;
 }
 
-#home .stat h3 {
-  color: var(--headline);
-  font-size: 4.8rem;
-  font-weight: bold;
-  line-height: 130%;
-
-  margin-bottom: 0.4rem;
+/*=== SERVICES =================================*/
+#services header h2 {
+  margin-bottom: 6rem;
 }
-
-/*                  MENU-EXPANDED                        */
-.menu {
-  transform: translateY(100%);
-}
-
-
-body.menu-expanded {
-  overflow: hidden;
-}
-
-body.menu-expanded > :not(nav) {
-  visibility: hidden;
-}
-
-.menu .close-menu,
-body.menu-expanded .open-menu {
-  opacity: 0;
-  visibility: hidden;
-}
-
-body.menu-expanded .menu,
-body.menu-expanded .close-menu {
-  opacity: 1;
-  visibility: visible;
-}
-
-body.menu-expanded .menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: var(--primary-color);
-
-  width: 100vw;
-  height: 100vw;
-
-  padding-top: var(--nav-height);
-
-  transition: transform 300ms;
-  transform: translateY(0);
-}
-
-ul.menu-ul {
-  display: flex;
-  flex-direction: column;
-  gap: 4.8rem;
-
-  margin-top: 6rem;
-
-  font-weight: 700;
-  font-size: 2.4rem;
-  line-height: 3.1rem;
-}
-
-.menu ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.menu .button {
-  background-color: white;
-  border: 1px solid #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  font-weight: 700;
-  border-radius: 4rem;
-  font-size: 1.8rem;
-  line-height: 2.3rem;
-  text-transform: uppercase;
-  text-decoration: none;
-
-  color: var(--primary-color);
-
-  display: inline-block;
-  padding: 1.6rem 3.2rem;
-
-  margin-top: 4.8rem;
-  margin-bottom: 8rem;
-}
-
-.social-links {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-}
-.social-links-ul {
-  display: flex;
-  justify-content: space-between;
-}
-.social-links-ul li {
-  margin: 2rem;
-}
-
-/* ul.icones {
-  display: flex;
-} */
-
-/* div.social-links svg path {
-  fill: none;
-  display: flex;
-} */
-
-body.menu-expanded .logo,
-body.menu-expanded nav button {
-  position: relative;
-  z-index: 100;
-}
-
-body.menu-expanded .logo path {
-  fill: white;
-}
-
-body.menu-expanded button path {
-  stroke: white;
-}
-
-/*            SERVICES                    */
 
 #services .cards {
   display: flex;
@@ -358,6 +335,7 @@ body.menu-expanded button path {
 #services .card {
   padding: 2.4rem;
   text-align: left;
+
   background: white;
 
   border: 1px solid var(--brand-light);
@@ -368,6 +346,17 @@ body.menu-expanded button path {
   margin-block: 1.6rem;
 }
 
+/*=== ABOUT =================================*/
+#about {
+  text-align: left;
+  background-color: var(--brand-beige);
+}
 
+#about header h2 {
+  margin-bottom: 2.4rem;
+}
 
-/*            ABOUT                    */
+#about .content p {
+  margin-top: 2.4rem;
+  margin-bottom: 6rem;
+}
