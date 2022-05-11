@@ -171,18 +171,17 @@ nav {
 
   height: var(--nav-height);
 
-  padding: 1.6rem 2.4rem;
-
   position: fixed;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 100vw;
+
+  z-index: 100;
+
 }
 
 nav.scroll {
   background-color: var(--primary-color);
-  width: 100vw;
-  top: 0;
+ 
 }
 
 nav.scroll svg:nth-child(1) path {
@@ -216,7 +215,7 @@ body.menu-expanded {
 }
 
 body.menu-expanded > :not(nav) {
-  display: none;
+  visibility: hidden;
 }
 
 .menu .close-menu,
@@ -243,7 +242,7 @@ body.menu-expanded .menu {
   padding-top: var(--nav-height);
 
   transition: transform 300ms;
- transform: translateY(0);
+  transform: translateY(0);
 }
 
 body.menu-expanded nav {
