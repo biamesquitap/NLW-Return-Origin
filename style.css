@@ -6,15 +6,16 @@
 }
 
 :root {
-  --primary-color: hsl(170, 100%, 26%);
-  --headline: hsl(210, 11%, 15%);
-  --paragraph: hsl(210, 9%, 31%);
+  --hue: 300;
+  --primary-color: hsl(var(--hue), 100%, 26%);
+  --headline: hsl(calc(var(--hue)+40), 11%, 15%);
+  --paragraph: hsl(calc(var(--hue)+40), 9%, 31%);
 
-  --brand-beige: hsl(39, 100%, 97%);
-  --brand-light: hsl(148, 23%, 89%);
-  --brand-dark: hsl(170, 100%, 14%);
+  --brand-beige: hsl(calc(var(--hue)-131), 100%, 97%);
+  --brand-light: hsl(calc(var(--hue)-22), 23%, 89%);
+  --brand-dark: hsl(var(--hue), 100%, 14%);
 
-  --bg-light: hsl(180, 14%, 97%);
+  --bg-light: hsl(calc(var(--hue)+10), 14%, 97%);
 
   font-size: 62.5%; /* 1rem = 10px */
 
@@ -44,7 +45,7 @@ body {
 }
 
 .wrapper {
-  width: 37.5rem;
+  width: min(50rem, 100%);
   margin-inline: auto;
   padding-inline: 2.4rem;
 }
@@ -132,6 +133,31 @@ section .content p {
   gap: 3.2rem;
 }
 
+/*=== Custom colors =================================*/
+
+#services .card circle {
+  fill: var(--brand-light);
+}
+
+#navigation .logo path[fill*='#00856F'],
+#backToTopButton circle {
+  fill: var(--primary-color);
+}
+
+button.open-menu path[stroke*='#00856F'],
+#contact li path {
+  stroke: var(--primary-color);
+}
+
+body.menu-expanded #navigation .logo path,
+#navigation.scroll .logo path {
+  fill: white;
+}
+
+#navigation.scroll button.open-menu path[stroke*='#00856F'] {
+  stroke: white;
+}
+
 /*=== NAVIGATION =================================*/
 nav {
   display: flex;
@@ -169,6 +195,11 @@ nav button {
   cursor: pointer;
 }
 
+nav .menu,
+nav .close-menu {
+  position: fixed;
+}
+
 /*=== MENU-EXPANDED =================================*/
 body.menu-expanded {
   overflow: hidden;
@@ -196,7 +227,6 @@ body.menu-expanded .close-menu {
 }
 
 body.menu-expanded .menu {
-  position: fixed;
   top: 0;
   left: 0;
   background: var(--primary-color);
@@ -243,6 +273,12 @@ body.menu-expanded .menu {
 
   margin-top: 4.8rem;
   margin-bottom: 8rem;
+}
+
+.menu .button:hover {
+  background-color: var(--primary-color);
+  color: white;
+  filter: brightness(1.3);
 }
 
 body.menu-expanded .logo,
@@ -298,7 +334,7 @@ body.menu-expanded button path {
 }
 
 #home .stats {
-  width: 32.7rem;
+  width: 100%;
   padding-block: 4rem;
   margin-inline: auto;
 
@@ -423,4 +459,142 @@ footer p {
 
 footer .social-links {
   justify-content: flex-start;
+}
+
+/*=== back to top =================================*/
+
+#backToTopButton {
+  position: fixed;
+  bottom: 1rem;
+  right: 2.5rem;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(100%);
+  transition: 200ms;
+}
+
+#backToTopButton.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+/*======== RESPONSIVO ==============================*/
+
+@media (min-width: 1024px) {
+  /*=== GERAL =================================*/
+
+  .wrapper {
+    width: min(112rem, 100%);
+  }
+
+  /*=== NAVIGATION ============================*/
+  /*====================================*/
+
+  /* RESET */
+  nav#navigation .wrapper * {
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+    font-weight: initial;
+  }
+
+  nav#navigation .close-menu,
+  nav#navigation .open-menu,
+  nav#navigation .social-links {
+    display: none;
+  }
+
+  nav#navigation .menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#navigation .menu ul:nth-child(1) {
+    display: flex;
+    gap: 3.2rem;
+  }
+
+  nav#navigation .menu ul li a {
+    color: var(--primary-color);
+    opacity: 0.7;
+  }
+
+  nav#navigation .menu a.button {
+    box-sizing: border-box;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 2.4rem;
+
+    border: 1px solid var(--primary-color);
+    border-radius: 4rem;
+
+    color: var(--primary-color);
+
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
+    text-transform: uppercase;
+  }
+
+  nav#navigation.scroll .menu ul li a {
+    color: var(--brand-light);
+    opacity: 0.6;
+  }
+
+  nav#navigation.scroll .menu a.button {
+    border-color: white;
+    color: white;
+  }
+
+  nav#navigation .menu li a {
+    transition: opacity 0.4s;
+  }
+
+  nav#navigation .menu li a:hover {
+    opacity: 1;
+    font-weight: 700;
+  }
+
+  nav#navigation .menu li a::after {
+    content: '';
+    width: 0%;
+    height: 2px;
+    background-color: var(--primary-color);
+
+    position: relative;
+    bottom: -2rem;
+    left: -0.5rem;
+
+    display: block;
+
+    transition: width 0.2s;
+  }
+
+  nav#navigation.scroll .menu li a::after {
+    background-color: white;
+  }
+
+  nav#navigation .menu li a:hover::after {
+    padding-inline: 0.8rem;
+    width: 100%;
+  }
+
+  nav#navigation.scroll .menu li a:hover {
+    opacity: 1;
+  }
 }
